@@ -1,0 +1,16 @@
+@import "../.././assets/styles/variables.scss";
+
+.settings-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.section__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.section {
+  margin-bottom: 30px;
+}

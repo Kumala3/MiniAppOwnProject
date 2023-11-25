@@ -1,0 +1,10 @@
+@import "../.././assets/styles/variables.scss";
+
+.section-title {
+    display: flex;
+    justify-content: left;
+    font-size: 15px;
+    color: $tg-theme-hint;
+    font-weight: $font-weight-bold;
+    margin-left: 10px;
+}

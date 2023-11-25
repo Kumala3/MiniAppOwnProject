@@ -1,0 +1,10 @@
+@import "../.././assets/styles/variables.scss";
+
+.language-model {
+  &__selector {
+    background-color: $tg-theme-secondary-bg;
+    display: flex;
+    flex-direction: column;
+
+  }
+}

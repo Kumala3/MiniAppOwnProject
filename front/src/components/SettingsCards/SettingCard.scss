@@ -1,0 +1,45 @@
+@import "src/assets/styles/variables.scss";
+
+.card {
+  display: grid;
+  background: $tg-theme-section-bg;
+  padding: 10px;
+  border-radius: 12px;
+
+  //&--disabled {
+  //  opacity: 0.5;
+  //}
+
+  &__left {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    grid-row: 1;
+  }
+
+  &__icon {
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__title {
+    font-size: 14px;
+    color: $tg-theme-text;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    grid-row: 1;
+  }
+
+  &__value {
+    font-size: 12px;
+    color: $tg-theme-hint;
+  }
+
+}

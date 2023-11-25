@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    working_dir: /home/node/app
+    volumes:
+      - ./front/:/home/node/app
+      - node_modules_volume:/home/node/app/node_modules
+    
+    command: ["npm", "run", "dev", "--", "--host"]
+
+    stop_signal: SIGINT
+    
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    environment:
+      - NGROK_CONFIG=/etc/ngrok.yml
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    expose:
+      - 443
+
+
+volumes:
+  node_modules_volume:
+    
