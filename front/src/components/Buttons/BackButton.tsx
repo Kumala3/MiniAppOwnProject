@@ -10,7 +10,8 @@ function BackNavigationButton() {
             <BackButton
                 onClick={
                     () => navigate(-1)
-                }/>
+                }
+            />
         </div>
     )
 }

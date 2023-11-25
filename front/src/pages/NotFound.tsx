@@ -1,4 +1,4 @@
-import BackNavigationButton from "../components/BackButton.tsx"
+import BackNavigationButton from "../components/Buttons/BackButton.tsx"
 
 function NotFound() {
     return (

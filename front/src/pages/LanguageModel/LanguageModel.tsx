@@ -1,15 +1,15 @@
 import "./LanguageModel.scss"
-import BackNavigationButton from "../../components/BackButton.tsx"
+import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
 import SectionTitle from "../Settings/SectionTitle.tsx"
 import SelectionOption from "../../components/SelectionOption/SelectionOption.tsx"
 import {modelProps} from "../../App.tsx"
 import {useState} from "react"
-import {MainButton} from "@vkruglikov/react-telegram-web-app"
+import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
 
 type LanguageModelProps = {
     userModel: modelProps,
     models: modelProps[],
-    setUserModel: () => void,
+    setUserModel: (model: modelProps) => void,
 }
 
 function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
@@ -18,11 +18,6 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
 
     const handleClick = (model: modelProps) => {
         setSelectedModel(model)
-        // setUserModel(model)
-    }
-
-    const handleSave = () => {
-        setUserModel(selectedModel)
     }
 
     return (
@@ -36,7 +31,9 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                                 key={model.model_id}
                                 text={model.model_name}
                                 is_selected={model.model_id === selectedModel.model_id}
-                                onClick={() => {handleClick(model)}}
+                                onClick={() => {
+                                    handleClick(model)
+                                }}
                             />
                         )
                     })
@@ -45,10 +42,10 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
             <div className={"language-model__description"}>
                 description
             </div>
-            <MainButton
-                text={"Save"}
-                onClick={handleSave}
-
+            <SaveSettingsButton
+                setUserModel={setUserModel}
+                selectedModel={selectedModel}
+                userModel={userModel}
             />
             <BackNavigationButton/>
         </div>
