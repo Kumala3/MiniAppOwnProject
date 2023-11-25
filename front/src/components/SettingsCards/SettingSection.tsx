@@ -1,10 +1,8 @@
 import SettingCard, {SettingCardProps} from "./SettingCard.tsx"
-import SectionTitle from "../../pages/Settings/SectionTitle.tsx"
-// import React from "react"
+import SectionTitle from "../SectionTitle/SectionTitle.tsx"
 
 type SettingSectionProps = {
     title: string;
-    // children: React.ReactNode;
     data: SettingCardProps[];
 }
 
@@ -26,7 +24,6 @@ function SettingSection({title, data}: SettingSectionProps) {
                             ready={card.ready}/>
                     ))
                 }
-
             </div>
         </section>
     )

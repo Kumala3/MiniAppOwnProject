@@ -1,6 +1,6 @@
 import "./LanguageModel.scss"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
-import SectionTitle from "../Settings/SectionTitle.tsx"
+import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
 import SelectionOption from "../../components/SelectionOption/SelectionOption.tsx"
 import {modelProps} from "../../App.tsx"
 import {useState} from "react"
