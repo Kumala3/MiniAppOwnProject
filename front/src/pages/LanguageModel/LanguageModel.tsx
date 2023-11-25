@@ -5,6 +5,7 @@ import SelectionOption from "../../components/SelectionOption/SelectionOption.ts
 import {modelProps} from "../../App.tsx"
 import {useState} from "react"
 import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
+import Description from "../../components/Description/Description.tsx"
 
 type LanguageModelProps = {
     userModel: modelProps,
@@ -39,9 +40,12 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                     })
                 }
             </div>
-            <div className={"language-model__description"}>
-                description
-            </div>
+            <Description text={"Choose a language model to use for your speech recognition.wawa"}>
+                <ul>
+                    <li><strong>GPT 3</strong> provides good results at a lower cost.</li>
+                    <li><strong>GPT 4</strong> offers superior performance but at a higher price.</li>
+                </ul>
+            </Description>
             <SaveSettingsButton
                 setUserModel={setUserModel}
                 selectedModel={selectedModel}
