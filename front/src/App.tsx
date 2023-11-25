@@ -84,9 +84,9 @@ function App() {
                         path={ROUTES.LANGUAGE_INTERFACE}
                         element={
                             <LanguageInterface
-                                models={models}
-                                userModel={userModel}
-                                setUserModel={setUserModel}
+                                languages={languages}
+                                userLanguage={userLanguage}
+                                setUserLanguage={setUserLanguage}
                             />
                         }
                     />

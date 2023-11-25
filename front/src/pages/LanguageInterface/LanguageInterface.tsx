@@ -2,26 +2,47 @@ import "./LanguageInterface.scss"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
 import {languageProps} from "../../App.tsx"
 import {useState} from "react"
-// import saveButton from "../../components/Buttons/SaveButton.tsx"
+import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
+import SelectionOption from "../../components/SelectionOption/SelectionOption.tsx"
+import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
 
 type LanguageInterfaceProps = {
     userLanguage: languageProps,
-    models: languageProps[],
+    languages: languageProps[],
     setUserLanguage: (language: languageProps) => void,
 }
 
-function LanguageInterface({userLanguage, models, setUserLanguage}: LanguageInterfaceProps)
+function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageInterfaceProps)
 {
-    const [selectedLanguage, setSelectedLanguage] = useState<languageProps>(models[0])
+    const [selectedLanguage, setSelectedLanguage] = useState<languageProps>(languages[0])
 
-    const handleClick = (language: modelProps) => {
-        setSelectedLanguage(model)
+    const handleClick = (language: languageProps) => {
+        setSelectedLanguage(language)
     }
 
 
     return (
-        <div>
-            niger
+        <div className={"language-interface"}>
+            <SectionTitle title={"Language"}/>
+            <div className={"language-interface__selector"}>
+                {
+                    languages.map((language) => {
+                        return (
+                            <SelectionOption
+                                key={language.language_id}
+                                text={language.language_name}
+                                is_selected={language.language_id === selectedLanguage.language_id}
+                                onClick={() => {handleClick(language)}}
+                                subtitle_text={language.subtitle_language}
+                            />
+                        )
+                    })
+                }
+            </div>
+            {/*<SaveSettingsButton*/}
+            {/*    setUserModel={setUserLanguage}*/}
+            {/*    selectedModel={}*/}
+            {/*    userModel={}/>*/}
             <BackNavigationButton/>
         </div>
     )
