@@ -5,6 +5,7 @@ import {useState} from "react"
 import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
 import SelectionOption from "../../components/SelectionOption/SelectionOption.tsx"
 import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
+import Description from "../../components/Description/Description.tsx"
 
 type LanguageInterfaceProps = {
     userLanguage: languageProps,
@@ -19,7 +20,6 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
     const handleClick = (language: languageProps) => {
         setSelectedLanguage(language)
     }
-
 
     return (
         <div className={"language-interface"}>
@@ -39,12 +39,15 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                     })
                 }
             </div>
+            <Description text={""}>
+                <p className={"main-text"}>This option does not control this interface yet</p>
+                <p>Controls the language of the interface in the bot</p>
+            </Description>
             <SaveSettingsButton<languageProps>
                 setData={setUserLanguage}
                 selectedData={selectedLanguage}
                 userData={userLanguage}
                 compare={(selected, user) => selected.language_id !== user.language_id}
-
             />
             <BackNavigationButton/>
         </div>

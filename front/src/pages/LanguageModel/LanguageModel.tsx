@@ -32,9 +32,7 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                                 key={model.model_id}
                                 text={model.model_name}
                                 is_selected={model.model_id === selectedModel.model_id}
-                                onClick={() => {
-                                    handleClick(model)
-                                }}
+                                onClick={() => {handleClick(model)}}
                             />
                         )
                     })
