@@ -46,7 +46,7 @@ function Settings({userModel, userLanguage}: SettingsProps)
             ready: false,
         },
         {
-            title: "auto speech",
+            title: "auto transcription",
             icon: "./src/assets/icons/auto-transcription.png",
             value: "Off",
             to: ROUTES.AUTO_TRANSCRIPTION,
