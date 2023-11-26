@@ -65,7 +65,7 @@ function Settings({userModel, userLanguage}: SettingsProps)
         {
             title: "Language",
             icon: "./src/assets/icons/language-interface.png",
-            value: userLanguage.verbose_name,
+            value: userLanguage.language_name,
             to: ROUTES.LANGUAGE_INTERFACE,
             ready: true,
         }
