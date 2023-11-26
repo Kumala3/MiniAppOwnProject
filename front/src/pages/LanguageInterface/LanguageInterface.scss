@@ -2,6 +2,9 @@
 
 
 .language-interface {
+  background-color: $tg-theme-bg;
+  height: 100vh;
+
   &__selector {
     background-color: $tg-theme-secondary-bg;
     display: flex;
