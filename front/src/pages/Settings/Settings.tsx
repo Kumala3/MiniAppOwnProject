@@ -1,13 +1,17 @@
 import "./Settings.scss"
 import SettingSection from "../../components/SettingsCards/SettingSection.tsx"
 import {ROUTES} from "../../constants/routes.ts"
-import {modelProps} from "../../App.tsx"
+import {modelProps, languageProps} from "../../App.tsx"
 
 export type SettingsProps = {
     userModel: modelProps,
+    userLanguage: languageProps,
 }
 
-function Settings({userModel}: SettingsProps) {
+function Settings({userModel, userLanguage}: SettingsProps)
+{
+    console.log(userModel)
+    console.log(userLanguage)
     const modelSettingsData = [
         {
             title: "language model",
@@ -55,15 +59,13 @@ function Settings({userModel}: SettingsProps) {
             to: ROUTES.SINGLE_MESSAGE,
             ready: false,
         }
-
-
     ]
 
     const InterfaceData = [
         {
             title: "Language",
             icon: "./src/assets/icons/language-interface.png",
-            value: "English",
+            value: userLanguage.verbose_name,
             to: ROUTES.LANGUAGE_INTERFACE,
             ready: true,
         }

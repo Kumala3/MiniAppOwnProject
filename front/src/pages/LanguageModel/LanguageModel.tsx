@@ -49,7 +49,6 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                 selectedData={selectedModel}
                 userData={userModel}
                 compare={(selected, user) => selected.model_id !== user.model_id}
-
             />
             <BackNavigationButton/>
         </div>

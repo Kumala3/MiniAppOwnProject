@@ -8,8 +8,8 @@ import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
 import Description from "../../components/Description/Description.tsx"
 
 type LanguageInterfaceProps = {
-    userLanguage: languageProps,
     languages: languageProps[],
+    userLanguage: languageProps,
     setUserLanguage: (language: languageProps) => void,
 }
 
@@ -33,7 +33,7 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                                 text={language.language_name}
                                 is_selected={language.language_id === selectedLanguage.language_id}
                                 onClick={() => {handleClick(language)}}
-                                secondary_text={language.subtitle_language}
+                                secondary_text={language.verbose_name}
                             />
                         )
                     })

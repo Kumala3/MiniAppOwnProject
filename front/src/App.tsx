@@ -16,7 +16,7 @@ export type modelProps = {
 export type languageProps = {
     language_id: number,
     language_name: string,
-    subtitle_language: string,
+    verbose_name: string,
 }
 
 function App() {
@@ -42,22 +42,25 @@ function App() {
         {
             language_id: 1,
             language_name: "English",
-            subtitle_language: "English",
+            verbose_name: "English",
         },
         {
             language_id: 2,
             language_name: "Russian",
-            subtitle_language: "Русский",
+            verbose_name: "Русский",
         },
         {
             language_id: 3,
             language_name: "Ukrainian",
-            subtitle_language: "Українська",
+            verbose_name: "Українська",
         },
     ]
 
     const [userModel, setUserModel] = useState(models[0])
     const [userLanguage, setUserLanguage] = useState(languages[0])
+
+    console.log(userModel)
+    console.log(userLanguage)
 
     return (
         <>
@@ -68,7 +71,7 @@ function App() {
                         element={
                             <Settings
                                 userModel={userModel}
-
+                                userLanguage={userLanguage}
                             />}
                     />
                     <Route
@@ -87,9 +90,9 @@ function App() {
                                 languages={languages}
                                 userLanguage={userLanguage}
                                 setUserLanguage={setUserLanguage}
-                            />
-                        }
+                            />}
                     />
+                    console.log(userLanguage)
                     <Route
                         path="*"
                         element={<NotFound/>}/>
