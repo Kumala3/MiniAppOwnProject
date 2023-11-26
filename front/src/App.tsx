@@ -5,6 +5,7 @@ import Settings from "./pages/Settings/Settings.tsx"
 import {ROUTES} from "./constants/routes.ts"
 import LanguageModel from "./pages/LanguageModel/LanguageModel.tsx"
 import LanguageInterface from "./pages/LanguageInterface/LanguageInterface.tsx"
+import AutoTranscription from "./pages/AutoTranscription/AutoTranscription.tsx"
 import {useState} from "react"
 
 export type modelProps = {
@@ -58,9 +59,7 @@ function App() {
 
     const [userModel, setUserModel] = useState(models[0])
     const [userLanguage, setUserLanguage] = useState(languages[0])
-
-    console.log(userModel)
-    console.log(userLanguage)
+    const [userAutoTranscription, setUserAutoTranscription] = useState(false)
 
     return (
         <>
@@ -91,6 +90,15 @@ function App() {
                                 userLanguage={userLanguage}
                                 setUserLanguage={setUserLanguage}
                             />}
+                    />
+                    <Route
+                        path={ROUTES.AUTO_TRANSCRIPTION}
+                        element={
+                            <AutoTranscription
+                                // userAutoTranscription={userAutoTranscription}
+                                // setUserAutoTranscription={setUserAutoTranscription}
+                            />
+                        }
                     />
                     console.log(userLanguage)
                     <Route
