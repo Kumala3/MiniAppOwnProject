@@ -5,10 +5,10 @@ type SelectionOptionProps = {
     text: string,
     is_selected: boolean,
     onClick: (model: modelProps) => void,
-    subtitle_text?: string,
+    secondary_text?: string,
 }
 
-function SelectionOption({text, is_selected, onClick, subtitle_text}: SelectionOptionProps) {
+function SelectionOption({text, is_selected, onClick, secondary_text}: SelectionOptionProps) {
     return (
         <div
             className={"selection-option"}
@@ -16,7 +16,7 @@ function SelectionOption({text, is_selected, onClick, subtitle_text}: SelectionO
             <div className={"selection-option__left"}>
                 <div className={"selection-option__text"}>
                     {text}
-                    <div className={"subtitle-text"}>{subtitle_text}</div>
+                    <div className={"subtitle-text"}>{secondary_text}</div>
                 </div>
             </div>
             <div className={"selection-option__right"}>

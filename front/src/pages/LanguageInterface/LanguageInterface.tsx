@@ -33,7 +33,7 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                                 text={language.language_name}
                                 is_selected={language.language_id === selectedLanguage.language_id}
                                 onClick={() => {handleClick(language)}}
-                                subtitle_text={language.subtitle_language}
+                                secondary_text={language.subtitle_language}
                             />
                         )
                     })

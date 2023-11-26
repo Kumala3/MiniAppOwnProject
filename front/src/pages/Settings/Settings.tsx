@@ -65,7 +65,7 @@ function Settings({userModel}: SettingsProps) {
             icon: "./src/assets/icons/language-interface.png",
             value: "English",
             to: ROUTES.LANGUAGE_INTERFACE,
-            ready: false,
+            ready: true,
         }
     ]
 
