@@ -46,10 +46,12 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                     <li><strong>GPT 4</strong> offers superior performance but at a higher price.</li>
                 </ul>
             </Description>
-            <SaveSettingsButton
-                setUserModel={setUserModel}
-                selectedModel={selectedModel}
-                userModel={userModel}
+            <SaveSettingsButton<modelProps>
+                setData={setUserModel}
+                selectedData={selectedModel}
+                userData={userModel}
+                compare={(selected, user) => selected.model_id !== user.model_id}
+
             />
             <BackNavigationButton/>
         </div>

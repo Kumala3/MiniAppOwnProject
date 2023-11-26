@@ -39,10 +39,13 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                     })
                 }
             </div>
-            {/*<SaveSettingsButton*/}
-            {/*    setUserModel={setUserLanguage}*/}
-            {/*    selectedModel={}*/}
-            {/*    userModel={}/>*/}
+            <SaveSettingsButton<languageProps>
+                setData={setUserLanguage}
+                selectedData={selectedLanguage}
+                userData={userLanguage}
+                compare={(selected, user) => selected.language_id !== user.language_id}
+
+            />
             <BackNavigationButton/>
         </div>
     )
