@@ -95,8 +95,8 @@ function App() {
                         path={ROUTES.AUTO_TRANSCRIPTION}
                         element={
                             <AutoTranscription
-                                // userAutoTranscription={userAutoTranscription}
-                                // setUserAutoTranscription={setUserAutoTranscription}
+                                userAutoTranscription={userAutoTranscription}
+                                setUserAutoTranscription={setUserAutoTranscription}
                             />
                         }
                     />

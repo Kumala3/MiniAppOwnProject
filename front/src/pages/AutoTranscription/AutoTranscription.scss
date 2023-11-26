@@ -1,0 +1,23 @@
+@import "../../assets/styles/variables.scss";
+
+
+.auto-transcription{
+  .toggle-option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 6px;
+
+    &:hover {
+        background-color: $tg-theme-accent;
+    }
+  }
+  .hint-text {
+      font-size: 13px;
+      color: $tg-theme-hint;
+      letter-spacing: 1px;
+    }
+}
