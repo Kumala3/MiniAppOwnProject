@@ -47,7 +47,7 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                 setData={setUserLanguage}
                 selectedData={selectedLanguage}
                 userData={userLanguage}
-                compare={(selected, user) => selected.language_id !== user.language_id}
+                compare={(selectedLanguage, userLanguage) => selectedLanguage.language_id !== userLanguage.language_id}
             />
             <BackNavigationButton/>
         </div>
