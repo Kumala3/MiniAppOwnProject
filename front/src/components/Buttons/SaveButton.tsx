@@ -1,25 +1,27 @@
 import { useNavigate } from "react-router-dom"
 import { MainButton } from "@vkruglikov/react-telegram-web-app"
-import {modelProps} from "../../App.tsx"
+// import {modelProps} from "../../App.tsx"
 
-type SaveSettingsButtonProps = {
-    setUserModel: (model: modelProps) => void,
-    selectedModel: modelProps,
-    userModel: modelProps,
+type SaveSettingsButtonProps<T> = {
+    setData: (data: T) => void,
+    selectedData: T,
+    userData: T,
+    compare: (selectedData: T, userData: T) => boolean,
+
 }
 
-function SaveSettingsButton({setUserModel, selectedModel, userModel}: SaveSettingsButtonProps) {
+function SaveSettingsButton<T>({ setData, selectedData, userData, compare }: SaveSettingsButtonProps<T>) {
     const navigate = useNavigate()
 
     const handleSave = () => {
-        setUserModel(selectedModel)
+        setData(selectedData)
         navigate(-1)
     }
 
     return (
         <div>
             {
-                selectedModel.model_id !== userModel.model_id &&
+                compare(selectedData, userData) &&
                 <MainButton
                     text="Save"
                     onClick={handleSave}
