@@ -40,7 +40,7 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                 }
             </div>
             <Description text={""}>
-                <p className={"main-text"}>This option does not control this interface yet</p>
+                <p className={"first-paragraph"}>This option does not control this interface yet</p>
                 <p>Controls the language of the interface in the bot</p>
             </Description>
             <SaveSettingsButton<languageProps>
