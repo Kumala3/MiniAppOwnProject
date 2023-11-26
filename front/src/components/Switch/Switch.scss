@@ -1,0 +1,22 @@
+@import "../../assets/styles/variables.scss";
+
+
+.switch {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  cursor: pointer;
+
+  width: 50px;
+  height: 25px;
+  border-radius: 30px;
+
+  &::before {
+    content: "";
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: black;
+  }
+
+}
