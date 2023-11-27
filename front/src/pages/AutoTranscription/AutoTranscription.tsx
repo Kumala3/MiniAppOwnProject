@@ -2,7 +2,7 @@ import "./AutoTranscription.scss"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
 import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
 import Description from "../../components/Description/Description.tsx"
-import Switch from "../../components/Switch/Switch.tsx"
+import ToggleOption from "../../components/ToggleOption/ToggleOption.tsx"
 
 type AutoTranscriptionProps = {
     userAutoTranscription: boolean,
@@ -14,16 +14,14 @@ function AutoTranscription({userAutoTranscription, setUserAutoTranscription}: Au
         <>
             <div className={"auto-transcription"}>
                 <SectionTitle title={"Auto Transcription"}/>
-                <div className={"toggle-option"}>
-                    <div className={"toggle-option__text"}>
-                        Auto Transcription
-                    </div>
-                    <Switch
-                        Is_Checked={userAutoTranscription}
-                        setIsChecked={setUserAutoTranscription}/>
-                </div>
+                <ToggleOption
+                    text={"Automatic Transcription"}
+                    isChecked={userAutoTranscription}
+                    setIsChecked={setUserAutoTranscription}
+                />
                 <Description text={""}>
-                    <p className={"hint-text"}>Toggles audio transcription for voice messages and video notes, allowing to communicate with the bot
+                    <p className={"hint-text"}>Toggles audio transcription for voice messages and video notes, allowing
+                        to communicate with the bot
                         using audio if desired.</p>
                 </Description>
                 <BackNavigationButton/>

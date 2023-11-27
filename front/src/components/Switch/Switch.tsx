@@ -3,12 +3,12 @@ import classNames from "classnames"
 import {useState} from "react"
 
 type SwitchProps = {
-    Is_Checked: boolean,
+    is_Checked: boolean,
     setIsChecked: (is_checked: boolean) => void,
 }
 
-function Switch({Is_Checked, setIsChecked}: SwitchProps) {
-    const [checked, setChecked] = useState(Is_Checked)
+function Switch({is_Checked, setIsChecked}: SwitchProps) {
+    const [checked, setChecked] = useState(is_Checked)
 
     const toggleSwitch = () => {
         setChecked(!checked)
@@ -18,7 +18,7 @@ function Switch({Is_Checked, setIsChecked}: SwitchProps) {
     return (
         <>
             <span
-                className={classNames("switch", {"switch__checked": Is_Checked})}
+                className={classNames("switch", {"switch__checked": is_Checked})}
                 onClick={toggleSwitch}>
             </span>
         </>
