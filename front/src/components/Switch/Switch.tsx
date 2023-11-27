@@ -4,24 +4,23 @@ import {useState} from "react"
 
 type SwitchProps = {
     Is_Checked: boolean,
-    set_Is_Checked: (is_checked: boolean) => void,
+    setIsChecked: (is_checked: boolean) => void,
 }
 
-function Switch({Is_Checked, set_Is_Checked}: SwitchProps)
+function Switch({Is_Checked, setIsChecked}: SwitchProps)
 {
     const [checked, setChecked] = useState(Is_Checked)
 
     const toggleSwitch = () => {
         setChecked(!checked)
-        set_Is_Checked(!checked)
+        setIsChecked(!checked)
     }
 
     return (
         <>
             <span
-                className={classNames("switch", {"switch--checked": Is_Checked})}
+                className={classNames("switch", {"switch__checked": Is_Checked})}
                 onClick={toggleSwitch}>
-
             </span>
         </>
     )

@@ -18,7 +18,9 @@ function AutoTranscription({userAutoTranscription, setUserAutoTranscription}: Au
                     <div className={"toggle-option__text"}>
                         Auto Transcription
                     </div>
-                    <Switch/>
+                    <Switch
+                        Is_Checked={userAutoTranscription}
+                        setIsChecked={setUserAutoTranscription}/>
                 </div>
                 <Description text={""}>
                     <p className={"hint-text"}>Toggles audio transcription for voice messages and video notes, allowing to communicate with the bot
