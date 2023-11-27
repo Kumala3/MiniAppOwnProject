@@ -7,8 +7,7 @@ type SwitchProps = {
     setIsChecked: (is_checked: boolean) => void,
 }
 
-function Switch({Is_Checked, setIsChecked}: SwitchProps)
-{
+function Switch({Is_Checked, setIsChecked}: SwitchProps) {
     const [checked, setChecked] = useState(Is_Checked)
 
     const toggleSwitch = () => {
