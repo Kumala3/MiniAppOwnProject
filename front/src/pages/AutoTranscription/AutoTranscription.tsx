@@ -11,22 +11,21 @@ type AutoTranscriptionProps = {
 
 function AutoTranscription({userAutoTranscription, setUserAutoTranscription}: AutoTranscriptionProps) {
     return (
-        <>
-            <div className={"auto-transcription"}>
-                <SectionTitle title={"Auto Transcription"}/>
-                <ToggleOption
-                    text={"Automatic Transcription"}
-                    isChecked={userAutoTranscription}
-                    setIsChecked={setUserAutoTranscription}
-                />
-                <Description text={""}>
-                    <p className={"hint-text"}>Toggles audio transcription for voice messages and video notes, allowing
-                        to communicate with the bot
-                        using audio if desired.</p>
-                </Description>
-                <BackNavigationButton/>
-            </div>
-        </>
+        <div className={"auto-transcription"}>
+            <SectionTitle title={"Auto Transcription"}/>
+            <ToggleOption
+                text={"Automatic Transcription"}
+                isChecked={userAutoTranscription}
+                setIsChecked={setUserAutoTranscription}
+            />
+            <Description text={""}>
+                <p className={"hint-text"}>Toggles audio transcription for voice messages and video notes, allowing
+                    to communicate with the bot
+                    using audio if desired.</p>
+            </Description>
+            <BackNavigationButton/>
+        </div>
+
     )
 }
 
