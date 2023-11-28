@@ -1,0 +1,17 @@
+@import "../../assets/styles/variables.scss";
+
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: $tg-theme-secondary-bg;
+
+  &__text {
+    font-size: 13px;
+    color: black;
+  }
+}
