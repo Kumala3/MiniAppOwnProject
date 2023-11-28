@@ -7,6 +7,7 @@ import LanguageModel from "./pages/LanguageModel/LanguageModel.tsx"
 import LanguageInterface from "./pages/LanguageInterface/LanguageInterface.tsx"
 import AutoTranscription from "./pages/AutoTranscription/AutoTranscription.tsx"
 import AutoSpeech from "./pages/AutoSpeech/AutoSpeech.tsx"
+import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
 import {useState} from "react"
 
 export type modelProps = {
@@ -62,6 +63,7 @@ function App() {
     const [userLanguage, setUserLanguage] = useState(languages[0])
     const [userAutoTranscription, setUserAutoTranscription] = useState(false)
     const [userAutoSpeech, setUserAutoSpeech] = useState(false)
+    const [userSingleMessage, setUserSingleMessage] = useState(false)
 
     return (
         <>
@@ -75,6 +77,7 @@ function App() {
                                 userLanguage={userLanguage}
                                 userAutoTranscription={userAutoTranscription}
                                 userAutoSpeech={userAutoSpeech}
+                                userSingleMessage={userSingleMessage}
                             />}
                     />
                     <Route
@@ -110,6 +113,15 @@ function App() {
                             <AutoSpeech
                                 userAutoSpeech={userAutoSpeech}
                                 setUserAutoSpeech={setUserAutoSpeech}
+                            />
+                        }
+                    />
+                    <Route
+                        path={ROUTES.SINGLE_MESSAGE}
+                        element={
+                            <SingleMessage
+                                userSingleMessage={userSingleMessage}
+                                setUserSingleMessage={setUserSingleMessage}
                             />
                         }
                     />

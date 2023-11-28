@@ -1,0 +1,19 @@
+@import "../.././assets/styles/variables.scss";
+
+.single-message {
+  background-color: $tg-theme-bg;
+  height: 100vh;
+
+  &__description-text {
+    color: $tg-theme-hint;
+    margin-bottom: 10px;
+    margin-top: 7px;
+    margin-left: 10px;
+  }
+
+  &__preferences-list {
+    color: $tg-theme-hint;
+
+  }
+
+}

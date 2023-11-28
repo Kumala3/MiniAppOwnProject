@@ -8,9 +8,10 @@ export type SettingsProps = {
     userLanguage: languageProps,
     userAutoTranscription: boolean,
     userAutoSpeech: boolean,
+    userSingleMessage: boolean,
 }
 
-function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeech}: SettingsProps)
+function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeech, userSingleMessage}: SettingsProps)
 {
     const modelSettingsData = [
         {
@@ -55,7 +56,7 @@ function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeec
         {
             title: "single message",
             icon: "./src/assets/icons/single-message.png",
-            value: "Off",
+            value: userSingleMessage ? "On" : "Off",
             to: ROUTES.SINGLE_MESSAGE,
             ready: false,
         }
