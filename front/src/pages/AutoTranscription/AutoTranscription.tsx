@@ -25,7 +25,6 @@ function AutoTranscription({userAutoTranscription, setUserAutoTranscription}: Au
             </Description>
             <BackNavigationButton/>
         </div>
-
     )
 }
 

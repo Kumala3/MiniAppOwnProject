@@ -7,12 +7,11 @@ export type SettingsProps = {
     userModel: modelProps,
     userLanguage: languageProps,
     userAutoTranscription: boolean,
+    userAutoSpeech: boolean,
 }
 
-function Settings({userModel, userLanguage, userAutoTranscription}: SettingsProps)
+function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeech}: SettingsProps)
 {
-    console.log(userModel)
-    console.log(userLanguage)
     const modelSettingsData = [
         {
             title: "language model",
@@ -42,7 +41,7 @@ function Settings({userModel, userLanguage, userAutoTranscription}: SettingsProp
         {
             title: "automatic speech",
             icon: "./src/assets/icons/auto-speech.png",
-            value: "Off",
+            value: userAutoSpeech ? "On" : "Off",
             to: ROUTES.AUTOMATIC_SPEECH,
             ready: false,
         },

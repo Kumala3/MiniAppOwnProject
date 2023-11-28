@@ -6,6 +6,7 @@ import {ROUTES} from "./constants/routes.ts"
 import LanguageModel from "./pages/LanguageModel/LanguageModel.tsx"
 import LanguageInterface from "./pages/LanguageInterface/LanguageInterface.tsx"
 import AutoTranscription from "./pages/AutoTranscription/AutoTranscription.tsx"
+import AutoSpeech from "./pages/AutoSpeech/AutoSpeech.tsx"
 import {useState} from "react"
 
 export type modelProps = {
@@ -60,6 +61,7 @@ function App() {
     const [userModel, setUserModel] = useState(models[0])
     const [userLanguage, setUserLanguage] = useState(languages[0])
     const [userAutoTranscription, setUserAutoTranscription] = useState(false)
+    const [userAutoSpeech, setUserAutoSpeech] = useState(false)
 
     return (
         <>
@@ -72,6 +74,7 @@ function App() {
                                 userModel={userModel}
                                 userLanguage={userLanguage}
                                 userAutoTranscription={userAutoTranscription}
+                                userAutoSpeech={userAutoSpeech}
                             />}
                     />
                     <Route
@@ -101,7 +104,15 @@ function App() {
                             />
                         }
                     />
-                    console.log(userLanguage)
+                    <Route
+                        path={ROUTES.AUTOMATIC_SPEECH}
+                        element={
+                            <AutoSpeech
+                                userAutoSpeech={userAutoSpeech}
+                                setUserAutoSpeech={setUserAutoSpeech}
+                            />
+                        }
+                    />
                     <Route
                         path="*"
                         element={<NotFound/>}/>
