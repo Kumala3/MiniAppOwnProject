@@ -71,6 +71,7 @@ function App() {
                             <Settings
                                 userModel={userModel}
                                 userLanguage={userLanguage}
+                                userAutoTranscription={userAutoTranscription}
                             />}
                     />
                     <Route

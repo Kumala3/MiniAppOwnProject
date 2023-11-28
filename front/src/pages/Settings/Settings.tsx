@@ -6,9 +6,10 @@ import {modelProps, languageProps} from "../../App.tsx"
 export type SettingsProps = {
     userModel: modelProps,
     userLanguage: languageProps,
+    userAutoTranscription: boolean,
 }
 
-function Settings({userModel, userLanguage}: SettingsProps)
+function Settings({userModel, userLanguage, userAutoTranscription}: SettingsProps)
 {
     console.log(userModel)
     console.log(userLanguage)
@@ -48,7 +49,7 @@ function Settings({userModel, userLanguage}: SettingsProps)
         {
             title: "auto transcription",
             icon: "./src/assets/icons/auto-transcription.png",
-            value: "Off",
+            value: userAutoTranscription ? "On" : "Off",
             to: ROUTES.AUTO_TRANSCRIPTION,
             ready: false,
         },
