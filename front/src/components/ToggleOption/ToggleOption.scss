@@ -5,13 +5,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid black;
+  border: 1px solid $tg-theme-bg;
   border-radius: 8px;
-  padding: 6px;
+  padding: 12px;
   background-color: $tg-theme-secondary-bg;
 
   &__text {
-    font-size: 13px;
+    font-size: 16px;
     color: black;
   }
 }

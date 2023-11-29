@@ -3,14 +3,14 @@
 
 .switch {
   display: flex;
-  background-color: white;
+  background-color: $tg-theme-bg;
   align-items: center;
   cursor: pointer;
   min-width: 55px;
 
 
-  width: 55px;
-  height: 25px;
+  width: 50px;
+  height: 30px;
   border-radius: 30px;
   padding-left: 1px;
   padding-right: 1px;
@@ -18,9 +18,9 @@
   &::before {
     content: "";
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    background-color: black;
+    width: 26px;
+    height: 26px;
+    background-color: $tg-theme-text;
     transition: transform 0.5s ease-in-out;
   }
 
