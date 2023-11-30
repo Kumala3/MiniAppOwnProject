@@ -20,8 +20,8 @@
   }
 
   &__tick {
-    width: 10px;
-    height: 4px;
+    min-width: 10px;
+    min-height: 4px;
     border-bottom: 3px solid $tg-theme-text;
     border-left: 3px solid $tg-theme-text;
     transform: rotate(-45deg);
