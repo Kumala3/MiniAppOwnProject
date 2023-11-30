@@ -1,12 +1,16 @@
+## Preview 
+![img.png](Images/PreviewProject.png)
+
 ## Languages-Models
-![img.png](Images/LanguageModels.png)
+![img.png](Images/LanguagesModels.png)
 
 ## LanguageInterface
 ![img.png](Images/LanguageInterface.png)
 
-## AutoSpeech
-![img.png](Images/AutoSpeech.png)
+## AutoSpeechOff
+![img.png](Images/AutoSpeechOff.png)
 
-## SingleMessage
-![img.png](Images/SingleMessage.png)
+## AutoSpeechOn
+![img.png](Images/AutoSpeechOn.png)
+
 

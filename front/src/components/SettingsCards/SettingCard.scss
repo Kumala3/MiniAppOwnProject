@@ -1,10 +1,10 @@
-@import "src/assets/styles/variables.scss";
+@import "../../assets/styles/variables.scss";
 
 .card {
   display: grid;
-  background: $tg-theme-section-bg;
+  background: $tg-theme-secondary-bg;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 10px;
 
   &__left {
     display: flex;
