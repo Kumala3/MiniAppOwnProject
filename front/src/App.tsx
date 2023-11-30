@@ -8,6 +8,7 @@ import LanguageInterface from "./pages/LanguageInterface/LanguageInterface.tsx"
 import AutoTranscription from "./pages/AutoTranscription/AutoTranscription.tsx"
 import AutoSpeech from "./pages/AutoSpeech/AutoSpeech.tsx"
 import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
+import CustomInstructions from "./pages/CustomInstructions/CustomInstructions.tsx"
 import {useState} from "react"
 
 export type modelProps = {
@@ -123,6 +124,12 @@ function App() {
                                 userSingleMessage={userSingleMessage}
                                 setUserSingleMessage={setUserSingleMessage}
                             />
+                        }
+                    />
+                    <Route
+                        path={ROUTES.CUSTOM_INSTRUCTIONS}
+                        element={
+                            <CustomInstructions/>
                         }
                     />
                     <Route
