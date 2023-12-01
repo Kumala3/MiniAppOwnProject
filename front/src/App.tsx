@@ -140,6 +140,12 @@ function App() {
                         }
                     />
                     <Route
+                        path={ROUTES.CONTEXT_WINDOW_LIMIT}
+                        element={
+
+                        }
+                    />
+                    <Route
                         path="*"
                         element={<NotFound/>}/>
                 </Routes>
