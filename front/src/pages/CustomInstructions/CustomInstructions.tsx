@@ -1,8 +1,8 @@
 import "./CustomInstructions.scss"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
 import Description from "../../components/Description/Description.tsx"
-// import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
 import TextAreaCard from "../../components/TextAreaCard/TextAreaCard.tsx"
+import {MainButton} from "@vkruglikov/react-telegram-web-app"
 
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
@@ -68,9 +68,32 @@ const CustomInstructions =
                     }
                 />
 
-                <Description text={""}>
-                    <p className={"text-hint"}></p>
+                <Description text="">
+                    <p>
+                        This feature allows ChatGPT to feel more personal and contextual for each user
+                    </p>
+                    <br/>
+                    <p>
+                        The custom instruction feature enables users to provide standing information and preferences to
+                        personalize
+                        ChatGPT's responses, eliminating the need to re-explain the same details in every conversation.
+                    </p>
+                    <br/>
+                    <p>
+                        For example, users can set custom instructions to inform ChatGPT about their occupation, values,
+                        interests, or frequently asked questions, allowing the AI to tailor its responses accordingly
+                        without
+                        repeatedly prompting the user for the same background information.
+                    </p>
                 </Description>
+
+                {
+                    (currentUserProfileInstruction !== userProfile || currentResponseProfileInstruction !== responseProfile) &&
+                    <MainButton
+                        text="Save"
+                        onClick={handleSave}
+                    />
+                }
 
                 <BackNavigationButton/>
             </div>

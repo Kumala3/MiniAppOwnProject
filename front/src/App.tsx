@@ -66,7 +66,7 @@ function App() {
     const [userAutoSpeech, setUserAutoSpeech] = useState(false)
     const [userSingleMessage, setUserSingleMessage] = useState(false)
     const [userProfile, setUserProfile] = useState("")
-    const [responseStyle , setResponseStyle] = useState("")
+    const [responseProfile , setResponseProfile] = useState("")
 
     return (
         <>
@@ -131,7 +131,12 @@ function App() {
                     <Route
                         path={ROUTES.CUSTOM_INSTRUCTIONS}
                         element={
-                            <CustomInstructions/>
+                            <CustomInstructions
+                                userProfile={userProfile}
+                                responseProfile={responseProfile}
+                                setUserProfile={setUserProfile}
+                                setResponseProfile={setResponseProfile}
+                            />
                         }
                     />
                     <Route
