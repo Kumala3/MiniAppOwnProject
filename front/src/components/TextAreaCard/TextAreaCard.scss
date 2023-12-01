@@ -1,0 +1,33 @@
+@import "../.././assets/styles/variables.scss";
+
+
+.text-area-card {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    background-color: $tg-theme-secondary-bg;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 12px;
+    color: $tg-theme-text;
+    border: none;
+    outline: none;
+    resize: none;
+    height: 125px;
+    font-family: 'Lucida Grande', Arial, sans-serif;
+    font-weight: $font-weight-regular;
+
+    &:focus {
+      border: 2px solid $tg-theme-accent;
+      background-color: $tg-theme-secondary-bg;
+      padding: 10px;
+    }
+
+    &::placeholder {
+      color: $tg-theme-hint;
+      opacity: 0.7;
+    }
+
+  }
+}
