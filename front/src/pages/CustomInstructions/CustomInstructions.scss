@@ -1,13 +1,8 @@
 @import "../.././assets/styles/variables.scss";
 
 .custom-instructions {
+  display: flex;
+  flex-direction: column;
   background-color: $tg-theme-bg;
-  height: 100vh;
-
-}
-
-.text-hint {
-  color: $tg-theme-hint;
-  font-size: 14px;
-
+  gap: 10px;
 }

@@ -65,6 +65,8 @@ function App() {
     const [userAutoTranscription, setUserAutoTranscription] = useState(false)
     const [userAutoSpeech, setUserAutoSpeech] = useState(false)
     const [userSingleMessage, setUserSingleMessage] = useState(false)
+    const [userProfile, setUserProfile] = useState("")
+    const [responseStyle , setResponseStyle] = useState("")
 
     return (
         <>
