@@ -9,9 +9,10 @@ export type SettingsProps = {
     userAutoTranscription: boolean,
     userAutoSpeech: boolean,
     userSingleMessage: boolean,
+    userWindowLimit: number,
 }
 
-function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeech, userSingleMessage}: SettingsProps)
+function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeech, userSingleMessage, userWindowLimit}: SettingsProps)
 {
     const modelSettingsData = [
         {
@@ -31,7 +32,7 @@ function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeec
         {
             title: "context window limit",
             icon: "./src/assets/icons/window-limit.png",
-            value: "",
+            value: userWindowLimit,
             to: ROUTES.CONTEXT_WINDOW_LIMIT,
             ready: false,
         }
