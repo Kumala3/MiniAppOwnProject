@@ -17,6 +17,7 @@ function TextAreaCard({title, placeholder, value, maxLength, spellCheck, onChang
             <SectionTitle
                 title={title}
                 type={"secondary"}
+                fontWeight={"regular"}
             />
 
             <textarea
