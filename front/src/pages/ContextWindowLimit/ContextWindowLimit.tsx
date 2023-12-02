@@ -45,7 +45,6 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
         <div className={"context-window-limit"}>
             <SectionTitle
                 title={"Context Window Limit"}
-                fontWeight={"regular"}
             />
             <Slider
                 min={minLimit}
@@ -56,8 +55,15 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
                 setCurrentValue={setCurrentWindowLimit}
             />
             <Description
-                text={"The context window limit is the maximum number of tokens (~characters) that ChatGPT will use to generate responses."}>
+                text={""}
+                fontWeight={"regular"}
+                color={"hint"}
+            >
                 <p>
+                    The context window limit is the maximum number of tokens (~characters) that ChatGPT will use to generate responses.
+                </p>
+                <br/>
+                <p className={"description-text"}>
                     A higher context window limit will allow ChatGPT to generate more
                     accurate responses, but will also increase the cost of each message.
                 </p>
