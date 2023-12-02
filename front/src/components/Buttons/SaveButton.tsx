@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import { MainButton } from "@vkruglikov/react-telegram-web-app"
-// import {modelProps} from "../../App.tsx"
 
 type SaveSettingsButtonProps<T> = {
     setData: (data: T) => void,
