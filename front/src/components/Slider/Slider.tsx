@@ -17,6 +17,8 @@ function Slider({min, max, textUnit, step, currentValue, setCurrentValue}: Slide
         setCurrentValue(Number(event.target.value))
     }
 
+    const filledPercentage = (currentValue - min) / (max - min) * 100
+
     return (
         <div className={"slider"}>
             <div className={"slider__top"}>
@@ -26,6 +28,12 @@ function Slider({min, max, textUnit, step, currentValue, setCurrentValue}: Slide
                 </div>
                 <div className={"slider__label"}>{max.toLocaleString()}</div>
             </div>
+
+            <div className={"slider__track"}/>
+            <div
+                className={"slider__filled-track"}
+                style={{width: `${filledPercentage}%`}}
+            />
 
             <input
                 className={"slider__input"}

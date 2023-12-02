@@ -9,10 +9,10 @@
   }
 
   &__label {
-      font-size: 14px;
-      font-weight: $font-weight-regular;
-      color: $tg-theme-hint;
-    }
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    color: $tg-theme-hint;
+  }
 
   &__value {
     font-size: 18px;
@@ -20,4 +20,33 @@
     color: $tg-theme-text;
   }
 
+  &__track {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background-color: $tg-theme-hint;
+    border-radius: 5px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 5px;
+      background-color: #09c9da;
+    }
+  }
+}
+
+.slider__input {
+  appearance: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  width: calc(100% - 5px);
+
+  &::-webkit-slider-thumb {
+
+    cursor: pointer;
+  }
 }
