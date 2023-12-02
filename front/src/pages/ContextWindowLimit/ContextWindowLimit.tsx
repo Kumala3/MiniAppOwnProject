@@ -35,6 +35,9 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
                 min={1000}
                 max={15000}
                 textUnit={"Tokens"}
+                step={1000}
+                currentValue={currentWindowLimit}
+                setCurrentValue={setCurrentWindowLimit}
             />
             <Description
                 text={"The context window limit is the maximum number of tokens (~characters) that ChatGPT will use to generate responses."}>
