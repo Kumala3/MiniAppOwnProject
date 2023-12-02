@@ -1,6 +1,6 @@
 import "./Slider.scss"
 import React from "react"
-
+import {useRef} from "react"
 
 type SliderProps = {
     min: number,
@@ -18,9 +18,12 @@ function Slider({min, max, textUnit, step, currentValue, setCurrentValue}: Slide
     }
 
     const filledPercentage = (currentValue - min) / (max - min) * 100
+    const sliderRef = useRef<HTMLElement>(null)
 
     return (
-        <div className={"slider"}>
+        <div
+            className={"slider"}
+            ref={sliderRef}>
             <div className={"slider__top"}>
                 <div className={"slider__label"}>{min.toLocaleString()}</div>
                 <div className={"slider__value"}>
