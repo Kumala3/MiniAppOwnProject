@@ -1,0 +1,23 @@
+@import "../.././assets/styles/variables.scss";
+
+.slider {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+      font-size: 14px;
+      font-weight: $font-weight-regular;
+      color: $tg-theme-hint;
+    }
+
+  &__value {
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    color: $tg-theme-text;
+  }
+
+}
