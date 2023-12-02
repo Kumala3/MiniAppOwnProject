@@ -15,6 +15,19 @@ type WindowLimitProps = {
     userModelID: number,
 }
 
+const getMaxLimit = (modelId: number) => {
+    switch (modelId) {
+    case 1:
+        return 8000
+    case 2:
+        return 16000
+    case 3:
+        return 32000
+    default:
+        return 8000
+    }
+}
+
 function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowLimitProps) {
 
     const [currentWindowLimit, setCurrentWindowLimit] = useState<number>(userWindowLimit)
@@ -25,6 +38,9 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
         navigate(-1)
     }
 
+    const minLimit = 1000
+    const maxLimit = getMaxLimit(userModelID)
+
     return (
         <div className={"context-window-limit"}>
             <SectionTitle
@@ -32,8 +48,8 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
                 fontWeight={"regular"}
             />
             <Slider
-                min={1000}
-                max={15000}
+                min={minLimit}
+                max={maxLimit}
                 textUnit={"Tokens"}
                 step={1000}
                 currentValue={currentWindowLimit}

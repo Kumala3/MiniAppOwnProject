@@ -1,11 +1,13 @@
 @import "../.././assets/styles/variables.scss";
 
 .slider {
+  position: relative;
+  padding: 10px 0;
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   &__label {
@@ -27,13 +29,29 @@
     background-color: $tg-theme-hint;
     border-radius: 5px;
 
-    &:before {
+    &:before,
+    &:after {
       position: absolute;
+      z-index: 1;
       content: "";
       height: 20px;
-      width: 5px;
-      background-color: #09c9da;
+      width: 4px;
+      background-color: $tg-theme-hint;
+      transform: translateY(-50%);
+      top: 50%;
     }
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
+
+  &__filled-track {
+    position: absolute;
+    height: 5px;
+    background-color: $tg-theme-accent;
   }
 }
 
@@ -46,7 +64,17 @@
   width: calc(100% - 5px);
 
   &::-webkit-slider-thumb {
-
+    z-index: 2;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
     cursor: pointer;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: $tg-theme-text;
+    border-radius: 50%;
+    transform: translateY(-50%);
   }
 }
