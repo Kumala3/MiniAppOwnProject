@@ -46,10 +46,12 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
                     accurate responses, but will also increase the cost of each message.
                 </p>
             </Description>
-            <MainButton
-                text={"Save"}
-                onClick={handleSave}
-            />
+            { currentWindowLimit !== userWindowLimit &&
+                <MainButton
+                    text={"Save"}
+                    onClick={handleSave}
+                />
+            }
             <BackNavigationButton/>
         </div>
     )
