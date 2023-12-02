@@ -68,7 +68,7 @@ function App() {
     const [userSingleMessage, setUserSingleMessage] = useState(false)
     const [userProfile, setUserProfile] = useState("")
     const [responseProfile, setResponseProfile] = useState("")
-    const [userWindowLimit, setUserWindowLimit] = useState(0)
+    const [userWindowLimit, setUserWindowLimit] = useState(1000)
 
     return (
         <>
