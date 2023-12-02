@@ -1,8 +1,13 @@
 @import "../.././assets/styles/variables.scss";
 
+.slider-container {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: $tg-theme-secondary-bg;
+}
+
 .slider {
   position: relative;
-  padding: 10px 0;
   &__top {
     display: flex;
     justify-content: space-between;

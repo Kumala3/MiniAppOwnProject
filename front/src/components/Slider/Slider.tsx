@@ -21,32 +21,34 @@ function Slider({min, max, textUnit, step, currentValue, setCurrentValue}: Slide
     const sliderRef = useRef<HTMLElement>(null)
 
     return (
-        <div
-            className={"slider"}
-            ref={sliderRef}>
-            <div className={"slider__top"}>
-                <div className={"slider__label"}>{min.toLocaleString()}</div>
-                <div className={"slider__value"}>
-                    {`${currentValue.toLocaleString()} ${textUnit}`}
-                </div>
-                <div className={"slider__label"}>{max.toLocaleString()}</div>
-            </div>
-
-            <div className={"slider__track"}/>
+        <div className={"slider-container"}>
             <div
-                className={"slider__filled-track"}
-                style={{width: `${filledPercentage}%`}}
-            />
+                className={"slider"}
+                ref={sliderRef}>
+                <div className={"slider__top"}>
+                    <div className={"slider__label"}>{min.toLocaleString()}</div>
+                    <div className={"slider__value"}>
+                        {`${currentValue.toLocaleString()} ${textUnit}`}
+                    </div>
+                    <div className={"slider__label"}>{max.toLocaleString()}</div>
+                </div>
 
-            <input
-                className={"slider__input"}
-                type={"range"}
-                min={min}
-                max={max}
-                value={currentValue}
-                step={step}
-                onChange={handleSave}
-            />
+                <div className={"slider__track"}/>
+                <div
+                    className={"slider__filled-track"}
+                    style={{width: `${filledPercentage}%`}}
+                />
+
+                <input
+                    className={"slider__input"}
+                    type={"range"}
+                    min={min}
+                    max={max}
+                    value={currentValue}
+                    step={step}
+                    onChange={handleSave}
+                />
+            </div>
         </div>
     )
 }
