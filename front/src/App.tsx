@@ -9,6 +9,7 @@ import AutoTranscription from "./pages/AutoTranscription/AutoTranscription.tsx"
 import AutoSpeech from "./pages/AutoSpeech/AutoSpeech.tsx"
 import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
 import CustomInstructions from "./pages/CustomInstructions/CustomInstructions.tsx"
+import WindowLimit from "./pages/ContextWindowLimit/ContextWindowLimit.tsx"
 import {useState} from "react"
 
 export type modelProps = {
@@ -66,7 +67,8 @@ function App() {
     const [userAutoSpeech, setUserAutoSpeech] = useState(false)
     const [userSingleMessage, setUserSingleMessage] = useState(false)
     const [userProfile, setUserProfile] = useState("")
-    const [responseProfile , setResponseProfile] = useState("")
+    const [responseProfile, setResponseProfile] = useState("")
+    const [userWindowLimit, setUserWindowLimit] = useState(0)
 
     return (
         <>
@@ -81,6 +83,7 @@ function App() {
                                 userAutoTranscription={userAutoTranscription}
                                 userAutoSpeech={userAutoSpeech}
                                 userSingleMessage={userSingleMessage}
+                                userWindowLimit={userWindowLimit}
                             />}
                     />
                     <Route
@@ -142,7 +145,11 @@ function App() {
                     <Route
                         path={ROUTES.CONTEXT_WINDOW_LIMIT}
                         element={
-
+                            <WindowLimit
+                                userWindowLimit={userWindowLimit}
+                                setUserWindowLimit={setUserWindowLimit}
+                                userModelID={userModel.model_id}
+                            />
                         }
                     />
                     <Route
