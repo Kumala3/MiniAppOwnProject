@@ -13,7 +13,6 @@ function SectionTitle({title, type = "primary", fontWeight = "bold"}: SectionTit
             className={classNames("section-title",
                 {"uppercase letter-spacing": type === "primary"},
                 {"capitalize": type === "secondary"},
-                {"$font-weight-regular": fontWeight === "regular"},
                 {"font-weight-regular": fontWeight === "regular"},
                 {"font-weight-semibold": fontWeight === "semibold"},
                 {"font-weight-bold": fontWeight === "bold"}
