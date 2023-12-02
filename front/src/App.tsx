@@ -9,7 +9,7 @@ import AutoTranscription from "./pages/AutoTranscription/AutoTranscription.tsx"
 import AutoSpeech from "./pages/AutoSpeech/AutoSpeech.tsx"
 import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
 import CustomInstructions from "./pages/CustomInstructions/CustomInstructions.tsx"
-import WindowLimit from "./pages/ContextWindowLimit/ContextWindowLimit.tsx"
+import WindowLimit from "./pages/WindowLimit/WindowLimit.tsx"
 import {useState} from "react"
 
 export type modelProps = {

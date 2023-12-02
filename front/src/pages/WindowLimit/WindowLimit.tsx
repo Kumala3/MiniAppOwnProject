@@ -1,4 +1,4 @@
-import "./ContextWindowLimit.scss"
+import "./WindowLimit.scss"
 import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
 import Description from "../../components/Description/Description.tsx"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
