@@ -1,8 +1,10 @@
 import "./ContextWindowLimit.scss"
 import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
 import Description from "../../components/Description/Description.tsx"
-import {useState} from "react"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
+import Slider from "../../components/Slider/Slider.tsx"
+
+import {useState} from "react"
 import {MainButton} from "@vkruglikov/react-telegram-web-app"
 import {useNavigate} from "react-router-dom"
 
@@ -29,8 +31,11 @@ function WindowLimit({userWindowLimit, setUserWindowLimit, userModelID}: WindowL
                 title={"Context Window Limit"}
                 fontWeight={"regular"}
             />
-
-
+            <Slider
+                min={1000}
+                max={15000}
+                textUnit={"Tokens"}
+            />
             <Description
                 text={"The context window limit is the maximum number of tokens (~characters) that ChatGPT will use to generate responses."}>
                 <p>
