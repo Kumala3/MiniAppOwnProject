@@ -1,11 +1,12 @@
 import "./Settings.scss"
 import SettingSection from "../../components/SettingsCards/SettingSection.tsx"
 import {ROUTES} from "../../constants/routes.ts"
-import {modelProps, languageProps} from "../../App.tsx"
+import {modelProps} from "../../App.tsx"
+import {Language} from "../../constants/languages.ts"
 
 export type SettingsProps = {
     userModel: modelProps,
-    userLanguage: languageProps,
+    userLanguage: Language,
     userAutoTranscription: boolean,
     userAutoSpeech: boolean,
     userSingleMessage: boolean,
@@ -67,7 +68,7 @@ function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeec
         {
             title: "Language",
             icon: "./src/assets/icons/language-interface.png",
-            value: userLanguage.language_name,
+            value: userLanguage.name,
             to: ROUTES.LANGUAGE_INTERFACE,
             ready: true,
         }
