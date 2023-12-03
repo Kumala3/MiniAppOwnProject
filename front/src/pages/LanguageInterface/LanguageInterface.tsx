@@ -1,6 +1,6 @@
 import "./LanguageInterface.scss"
-import {languageProps} from "../../App.tsx"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
+import {Language, LANGUAGES} from "../../constants/languages.ts"
 
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
@@ -12,16 +12,15 @@ import Description from "../../components/Description/Description.tsx"
 
 
 type LanguageInterfaceProps = {
-    languages: languageProps[],
-    userLanguage: languageProps,
-    setUserLanguage: (language: languageProps) => void,
+    userLanguage: Language,
+    setUserLanguage: (language: Language) => void,
 }
 
-function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageInterfaceProps) {
-    const [selectedLanguage, setSelectedLanguage] = useState<languageProps>(languages[0])
+function LanguageInterface({userLanguage, setUserLanguage}: LanguageInterfaceProps) {
+    const [selectedLanguage, setSelectedLanguage] = useState<Language>(userLanguage)
     const navigate = useNavigate()
 
-    const handleClick = (language: languageProps) => {
+    const handleClick = (language: Language) => {
         setSelectedLanguage(language)
     }
 
@@ -35,16 +34,16 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
             <SectionTitle title={"Language"}/>
             <div className={"language-interface__selector"}>
                 {
-                    languages.map((language) => {
+                    LANGUAGES.map((language) => {
                         return (
                             <SelectionOption
-                                key={language.language_id}
-                                text={language.language_name}
-                                is_selected={language.language_id === selectedLanguage.language_id}
+                                key={language.code}
+                                text={language.name}
+                                is_selected={language.code === selectedLanguage.code}
                                 onClick={() => {
                                     handleClick(language)
                                 }}
-                                secondary_text={language.verbose_name}
+                                secondary_text={language.localName}
                             />
                         )
                     })
@@ -55,7 +54,7 @@ function LanguageInterface({userLanguage, languages, setUserLanguage}: LanguageI
                 <p>Controls the language of the interface in the bot</p>
             </Description>
             {
-                selectedLanguage.language_id !== userLanguage.language_id &&
+                selectedLanguage.code !== userLanguage.code &&
                 <MainButton
                     text={"Save"}
                     onClick={handleSave}
