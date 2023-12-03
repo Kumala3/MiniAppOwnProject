@@ -1,10 +1,13 @@
 import "./LanguageModel.scss"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
+import {modelProps} from "../../App.tsx"
+
+import {useState} from "react"
+import {useNavigate} from "react-router-dom"
+import {MainButton} from "@vkruglikov/react-telegram-web-app"
+
 import SectionTitle from "../../components/SectionTitle/SectionTitle.tsx"
 import SelectionOption from "../../components/SelectionOption/SelectionOption.tsx"
-import {modelProps} from "../../App.tsx"
-import {useState} from "react"
-import SaveSettingsButton from "../../components/Buttons/SaveButton.tsx"
 import Description from "../../components/Description/Description.tsx"
 
 type LanguageModelProps = {
@@ -16,9 +19,15 @@ type LanguageModelProps = {
 function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
 
     const [selectedModel, setSelectedModel] = useState<modelProps>(models[0])
+    const navigate = useNavigate()
 
     const handleClick = (model: modelProps) => {
         setSelectedModel(model)
+    }
+
+    const handleSave = () => {
+        setUserModel(selectedModel)
+        navigate(-1)
     }
 
     return (
@@ -32,7 +41,9 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                                 key={model.model_id}
                                 text={model.model_name}
                                 is_selected={model.model_id === selectedModel.model_id}
-                                onClick={() => {handleClick(model)}}
+                                onClick={() => {
+                                    handleClick(model)
+                                }}
                             />
                         )
                     })
@@ -44,12 +55,13 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                     <li><strong>GPT 4</strong> offers superior performance but at a higher price.</li>
                 </ul>
             </Description>
-            <SaveSettingsButton<modelProps>
-                setData={setUserModel}
-                selectedData={selectedModel}
-                userData={userModel}
-                compare={(selectedModel, userModel) => selectedModel.model_id !== userModel.model_id}
-            />
+            {
+                selectedModel.model_id !== userModel.model_id &&
+                <MainButton
+                    text={"Save"}
+                    onClick={handleSave}
+                />
+            }
             <BackNavigationButton/>
         </div>
     )
