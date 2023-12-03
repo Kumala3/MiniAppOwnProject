@@ -11,16 +11,11 @@ import SingleMessage from "./pages/SingleMessage/SingleMessage.tsx"
 import CustomInstructions from "./pages/CustomInstructions/CustomInstructions.tsx"
 import WindowLimit from "./pages/WindowLimit/WindowLimit.tsx"
 import {useState} from "react"
+import {LANGUAGES} from "./constants/languages.ts"
 
 export type modelProps = {
     model_id: number,
     model_name: string,
-    verbose_name: string,
-}
-
-export type languageProps = {
-    language_id: number,
-    language_name: string,
     verbose_name: string,
 }
 
@@ -43,26 +38,8 @@ function App() {
         },
     ]
 
-    const languages: languageProps[] = [
-        {
-            language_id: 1,
-            language_name: "English",
-            verbose_name: "English",
-        },
-        {
-            language_id: 2,
-            language_name: "Russian",
-            verbose_name: "Русский",
-        },
-        {
-            language_id: 3,
-            language_name: "Ukrainian",
-            verbose_name: "Українська",
-        },
-    ]
-
     const [userModel, setUserModel] = useState(models[0])
-    const [userLanguage, setUserLanguage] = useState(languages[0])
+    const [userLanguage, setUserLanguage] = useState(LANGUAGES[0])
     const [userAutoTranscription, setUserAutoTranscription] = useState(false)
     const [userAutoSpeech, setUserAutoSpeech] = useState(false)
     const [userSingleMessage, setUserSingleMessage] = useState(false)
@@ -99,7 +76,6 @@ function App() {
                         path={ROUTES.LANGUAGE_INTERFACE}
                         element={
                             <LanguageInterface
-                                languages={languages}
                                 userLanguage={userLanguage}
                                 setUserLanguage={setUserLanguage}
                             />}
