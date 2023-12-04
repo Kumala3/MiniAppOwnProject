@@ -1,12 +1,14 @@
 from typing import Optional
 
-from sqlalchemy import BIGINT, VARCHAR, BOOLEAN, INTEGER, ForeignKey, false
+from sqlalchemy import BIGINT, VARCHAR, BOOLEAN, ForeignKey, false
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base, TimestampMixin
 
 
 class User(Base, TimestampMixin):
+    __tablename__ = 'users'
+
     user_id: Mapped[int] = mapped_column(BIGINT, primary_key=True, autoincrement=False)
     full_name: Mapped[str] = mapped_column(VARCHAR(64))
     username: Mapped[Optional[str]] = mapped_column(VARCHAR(64), unique=True)
