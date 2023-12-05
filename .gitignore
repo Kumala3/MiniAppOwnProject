@@ -25,3 +25,4 @@ dist-ssr
 
 ngrok.yml
 package-lock.json
+.env
