@@ -10,7 +10,7 @@ services:
       - ./front/:/home/node/app
       - node_modules_volume:/home/node/app/node_modules
     
-    command: ["npm", "run", "dev", "--", "--host"]
+    command: [ "npm", "run", "dev", "--", "--host" ]
 
     stop_signal: SIGINT
 
@@ -40,6 +40,25 @@ services:
                -c max_parallel_workers_per_gather=1 -c max_parallel_workers=2 -c max_parallel_maintenance_workers=1"
     env_file:
       - '.env'
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+
+  api:
+    container_name: "api"
+    stop_signal: SIGINT
+    build:
+      context: .backend
+      dockerfile: api.Dockerfile
+    working_dir: "/usr/src/app/api"
+    volumes:
+      - .:/usr/src/app/api
+    command: [ "uvicorn", "backend.infrastructure.api.app:app", "--host", "0.0.0.0", "--port", "8000" ]
+    restart: always
+    env_file:
+      - ".env"
     logging:
       driver: "json-file"
       options:
