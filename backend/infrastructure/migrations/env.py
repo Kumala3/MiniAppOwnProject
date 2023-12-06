@@ -46,9 +46,9 @@ def construct_sqlalchemy_url(driver, host, port, username, password, db) -> str:
     )
     return uri.render_as_string(hide_password=False)
 
+
 env = Env()
 env.read_env()
-
 
 config.set_main_option("sqlalchemy.url",
                        construct_sqlalchemy_url(
