@@ -1,2 +1,6 @@
 uvicorn
 fastapi
+sqlalchemy
+asyncpg
+alembic
+environs
