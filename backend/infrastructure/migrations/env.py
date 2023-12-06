@@ -1,11 +1,13 @@
 import asyncio
 from logging.config import fileConfig
 
+from sqlalchemy.engine.url import URL
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
-from backend.infrastructure.database.models import Base
+from infrastructure.database.models import Base
 
+from environs import Env
 from alembic import context
 
 # this is the Alembic Config object, which provides
@@ -23,10 +25,41 @@ if config.config_file_name is not None:
 # target_metadata = mymodel.Base.metadata
 target_metadata = Base.metadata
 
+
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
+
+def construct_sqlalchemy_url(driver, host, port, username, password, db) -> str:
+    """
+    Constructs and returns a SQLAlchemy URL for this database configuration.
+    """
+
+    uri = URL.create(
+        drivername=f"postgresql+{driver}",
+        username=username,
+        password=password,
+        host=host,
+        port=port,
+        database=db,
+    )
+    return uri.render_as_string(hide_password=False)
+
+env = Env()
+env.read_env()
+
+
+config.set_main_option("sqlalchemy.url",
+                       construct_sqlalchemy_url(
+                           driver="asyncpg",
+                           host=env.str("DB_HOST"),
+                           port=5432,
+                           username=env.str("POSTGRES_USER"),
+                           password=env.str("POSTGRES_PASSWORD"),
+                           db=env.str("POSTGRES_DB"),
+                       )
+                       )
 
 
 def run_migrations_offline() -> None:
