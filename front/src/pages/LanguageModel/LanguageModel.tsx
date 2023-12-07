@@ -18,7 +18,7 @@ type LanguageModelProps = {
 
 function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
 
-    const [selectedModel, setSelectedModel] = useState<modelProps>(models[0])
+    const [selectedModel, setSelectedModel] = useState<modelProps>(userModel)
     const navigate = useNavigate()
 
     const handleClick = (model: modelProps) => {
