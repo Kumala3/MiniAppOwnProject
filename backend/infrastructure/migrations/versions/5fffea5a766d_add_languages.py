@@ -39,6 +39,11 @@ languages = [
         local_name='Français',
         language_name='French',
     ),
+    dict(
+        language_code='de',
+        local_name='Deutsch',
+        language_name='German',
+    ),
 ]
 
 

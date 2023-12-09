@@ -9,7 +9,7 @@ services:
     volumes:
       - ./front/:/home/node/app
       - node_modules_volume:/home/node/app/node_modules
-    
+
     command: [ "npm", "run", "dev", "--", "--host" ]
 
     stop_signal: SIGINT
