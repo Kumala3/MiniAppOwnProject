@@ -6,7 +6,7 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 from infrastructure.database.models import Base
-from backend.infrastructure.database.utils import construct_sqlalchemy_url
+from config import DbConfig
 
 from environs import Env
 from alembic import context
@@ -34,17 +34,11 @@ target_metadata = Base.metadata
 
 env = Env()
 env.read_env()
+db_config = DbConfig.from_env(env)
 
 config.set_main_option(
     "sqlalchemy.url",
-    construct_sqlalchemy_url(
-        driver="asyncpg",
-        host=env.str("DB_HOST"),
-        port=5432,
-        username=env.str("POSTGRES_USER"),
-        password=env.str("POSTGRES_PASSWORD"),
-        db=env.str("POSTGRES_DB"),
-    )
+    db_config.construct_sqlalchemy_url()
 )
 
 
