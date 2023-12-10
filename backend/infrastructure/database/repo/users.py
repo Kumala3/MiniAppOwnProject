@@ -1,13 +1,7 @@
-import asyncio
-
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from infrastructure.database.models import User
 from infrastructure.database.repo.base import BaseRepo
-from infrastructure.database.setup import create_engine, create_session_pool
-from config import DbConfig
-from environs import Env
 
 
 class UserRepo(BaseRepo):
