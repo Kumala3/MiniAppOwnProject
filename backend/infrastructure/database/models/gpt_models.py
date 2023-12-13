@@ -16,7 +16,7 @@ class GPTModel(Base, TimestampMixin):
 
 
 class UserContextLimit(Base, TimestampMixin):
-    __tablename__ = 'user_context_limit'
+    __tablename__ = 'user_model_limit'
 
     user_id: Mapped[int_pk] = mapped_column(ForeignKey('users.user_id'), primary_key=True)
     model_id: Mapped[int_pk] = mapped_column(ForeignKey('gpt_models.model_id'), primary_key=True)
