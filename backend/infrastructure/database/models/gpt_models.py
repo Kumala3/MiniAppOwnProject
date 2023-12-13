@@ -13,3 +13,11 @@ class GPTModel(Base, TimestampMixin):
     model_name: Mapped[str] = mapped_column(VARCHAR(32), unique=True)
     verbose_name: Mapped[Optional[str]] = mapped_column(VARCHAR(32))
     max_context_limit: Mapped[int] = mapped_column(INTEGER)
+
+
+class UserContextLimit(Base, TimestampMixin):
+    __tablename__ = 'user_context_limit'
+
+    user_id: Mapped[int_pk] = mapped_column(ForeignKey('users.user_id'), primary_key=True)
+    model_id: Mapped[int_pk] = mapped_column(ForeignKey('gpt_models.model_id'), primary_key=True)
+    window_limit: Mapped[int] = mapped_column(INTEGER)
