@@ -31,3 +31,14 @@ class UserRepo(BaseRepo):
         stmt = update(User).where(User.user_id == user_id).values(**kwargs)
         await self.session.execute(stmt)
 
+    async def upsert_window_limit(self, user_id: int, model_id: int, window_limit: int):
+        stmt = (
+            insert(UserContextLimit).values(
+                user_id=user_id, model_id=model_id, window_limit=window_limit)
+            .on_conflict_do_update(
+                index_elements=[UserContextLimit.user_id, UserContextLimit.model_id],
+                set_=dict(window_limit=window_limit)
+            )
+        )
+
+        await self.session.execute(stmt)
