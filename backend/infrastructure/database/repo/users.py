@@ -24,6 +24,10 @@ class UserRepo(BaseRepo):
                 )
 
         result = await self.session.execute(stmt)
-        return result.mappings().all()
 
         return result.mappings().first()
+
+    async def update_user_info(self, user_id: int, **kwargs):
+        stmt = update(User).where(User.user_id == user_id).values(**kwargs)
+        await self.session.execute(stmt)
+
