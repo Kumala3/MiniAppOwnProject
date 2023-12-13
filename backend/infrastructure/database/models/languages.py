@@ -1,6 +1,6 @@
 from typing import Optional
 
-from sqlalchemy import BIGINT, VARCHAR, BOOLEAN, INTEGER, ForeignKey, false
+from sqlalchemy import VARCHAR
 from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base, TimestampMixin, int_pk
