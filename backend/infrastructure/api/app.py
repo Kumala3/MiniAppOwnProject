@@ -36,5 +36,9 @@ async def get_languages(request_repo: RequestRepo = Depends(get_request_repo)):
 @prefix_router.get("/user_info")
 async def get_user_info(request_repo: RequestRepo = Depends(get_request_repo)):
     return await request_repo.users.get_user_info()
+@prefix_router.get("/users/{user_id}/")
+async def get_user_info(user_id: int, request_repo: RequestRepo = Depends(get_request_repo)):
+    return await request_repo.users.get_user_by_id(user_id)
+
 
 app.include_router(prefix_router)
