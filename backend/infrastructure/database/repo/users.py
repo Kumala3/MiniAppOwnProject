@@ -21,7 +21,7 @@ class UserRepo(BaseRepo):
                 UserContextLimit, and_(UserContextLimit.user_id == User.user_id,
                                        UserContextLimit.model_id == User.model_id,
                                        )).where(User.user_id == user_id)
-                )
+        )
 
         result = await self.session.execute(stmt)
 
