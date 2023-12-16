@@ -1,6 +1,6 @@
 import "./LanguageModel.scss"
 import BackNavigationButton from "../../components/Buttons/BackButton.tsx"
-import {modelProps} from "../../App.tsx"
+import { Model } from "../../types/models.ts"
 
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
@@ -11,17 +11,17 @@ import SelectionOption from "../../components/SelectionOption/SelectionOption.ts
 import Description from "../../components/Description/Description.tsx"
 
 type LanguageModelProps = {
-    userModel: modelProps,
-    models: modelProps[],
-    setUserModel: (model: modelProps) => void,
+    userModel: Model,
+    models: Model[],
+    setUserModel: (model: Model) => void,
 }
 
-function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
+function LanguageModel({userModel, models, setUserModel}: Readonly<LanguageModelProps>) {
 
-    const [selectedModel, setSelectedModel] = useState<modelProps>(userModel)
+    const [selectedModel, setSelectedModel] = useState<Model>(userModel)
     const navigate = useNavigate()
 
-    const handleClick = (model: modelProps) => {
+    const handleClick = (model: Model) => {
         setSelectedModel(model)
     }
 
@@ -49,7 +49,7 @@ function LanguageModel({userModel, models, setUserModel}: LanguageModelProps) {
                     })
                 }
             </div>
-            <Description text={"Choose a language model to use for your speech recognition.wawa"}>
+            <Description text={"Choose a language model to use for your speech recognition."}>
                 <ul>
                     <li><strong>GPT 3</strong> provides good results at a lower cost.</li>
                     <li><strong>GPT 4</strong> offers superior performance but at a higher price.</li>

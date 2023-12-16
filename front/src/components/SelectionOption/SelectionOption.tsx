@@ -1,14 +1,14 @@
 import "./SelectionOption.scss"
-import {modelProps} from "../../App.tsx"
+import { Model } from "../../types/models"
 
 type SelectionOptionProps = {
     text: string,
     is_selected: boolean,
-    onClick: (model: modelProps) => void,
+    onClick: (model: Model) => void,
     secondary_text?: string,
 }
 
-function SelectionOption({text, is_selected, onClick, secondary_text}: SelectionOptionProps) {
+function SelectionOption({text, is_selected, onClick, secondary_text}: Readonly<SelectionOptionProps>) {
     return (
         <div
             className={"selection-option"}

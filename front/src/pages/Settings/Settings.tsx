@@ -1,11 +1,11 @@
 import "./Settings.scss"
 import SettingSection from "../../components/SettingsCards/SettingSection.tsx"
 import {ROUTES} from "../../constants/routes.ts"
-import {modelProps} from "../../App.tsx"
+import { Model } from "../../types/models.ts"
 import {Language} from "../../constants/languages.ts"
 
 export type SettingsProps = {
-    userModel: modelProps,
+    userModel: Model,
     userLanguage: Language,
     userAutoTranscription: boolean,
     userAutoSpeech: boolean,
@@ -13,7 +13,14 @@ export type SettingsProps = {
     userWindowLimit: number,
 }
 
-function Settings({userModel, userLanguage, userAutoTranscription, userAutoSpeech, userSingleMessage, userWindowLimit}: SettingsProps)
+function Settings({
+    userModel,
+    userLanguage,
+    userAutoTranscription,
+    userAutoSpeech,
+    userSingleMessage,
+    userWindowLimit
+}: Readonly<SettingsProps>)
 {
     const modelSettingsData = [
         {
