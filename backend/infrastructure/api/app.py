@@ -33,15 +33,24 @@ async def get_languages(request_repo: RequestRepo = Depends(get_request_repo)):
 
 
 @prefix_router.get("/users/{user_id}")
-async def get_user_info(user_id: int, request_repo: RequestRepo = Depends(get_request_repo)):
+async def get_user_info(
+    user_id: int,
+    request_repo: RequestRepo = Depends(get_request_repo)
+):
     return await request_repo.users.get_user_by_id(user_id)
 
 
 @prefix_router.patch("/users")
-async def update_user_info(update_user_data: UserUpdateData, request_repo: RequestRepo = Depends(get_request_repo)):
+async def update_user_info(
+    update_user_data: UserUpdateData,
+    request_repo: RequestRepo = Depends(get_request_repo)
+):
     if update_user_data.window_limit:
         if not update_user_data.model_id:
-            return HTTPException(status_code=400, detail="model_id is required for window_limit update")
+            raise HTTPException(
+                status_code=400,
+                detail="model_id is required for window_limit update"
+            )
 
         await request_repo.users.upsert_window_limit(
             update_user_data.user_id,
