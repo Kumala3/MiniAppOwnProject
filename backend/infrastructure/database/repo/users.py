@@ -17,27 +17,44 @@ class UserRepo(BaseRepo):
                 User.single_message,
                 User.user_profile,
                 User.response_profile,
-                func.coalesce(UserContextLimit.window_limit, 500).label("window_limit")).outerjoin(
-                UserContextLimit, and_(UserContextLimit.user_id == User.user_id,
-                                       UserContextLimit.model_id == User.model_id,
-                                       )).where(User.user_id == user_id)
+                func.coalesce_(
+                    UserContextLimit.window_limit, 500
+                ).label("window_limit")
+            )
+            .outerjoin(
+                UserContextLimit,
+                and_(
+                    UserContextLimit.user_id == User.user_id,
+                    UserContextLimit.model_id == User.model_id,
+                )
+            )
+            .where(User.user_id == user_id)
         )
 
         result = await self.session.execute(stmt)
 
-        return result.mappings().first()
+        return dict(result.mappings().first() or {})
 
     async def update_user_info(self, user_id: int, **kwargs):
         stmt = update(User).where(User.user_id == user_id).values(**kwargs)
         await self.session.execute(stmt)
 
-    async def upsert_window_limit(self, user_id: int, model_id: int, window_limit: int):
+    async def upsert_window_limit(
+        self, user_id: int, model_id: int, window_limit: int
+    ):
         stmt = (
-            insert(UserContextLimit).values(
-                user_id=user_id, model_id=model_id, window_limit=window_limit)
+            insert(UserContextLimit)
+            .values(
+                user_id=user_id,
+                model_id=model_id,
+                window_limit=window_limit
+            )
             .on_conflict_do_update(
-                index_elements=[UserContextLimit.user_id, UserContextLimit.model_id],
-                set_=dict(window_limit=window_limit)
+                index_elements=[
+                    UserContextLimit.user_id,
+                    UserContextLimit.model_id
+                ],
+                set_=dict(window_limit=window_limit),
             )
         )
 
