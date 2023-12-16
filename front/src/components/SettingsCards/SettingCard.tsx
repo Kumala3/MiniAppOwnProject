@@ -11,7 +11,7 @@ export type SettingCardProps = {
     ready: boolean
 }
 
-function SettingCard({title, value, icon, to, ready = false}: SettingCardProps) {
+function SettingCard({title, value, icon, to, ready = false}: Readonly<SettingCardProps>) {
     return (
         <Link to={to}>
             <div className={classNames("card", {"card--disabled": !ready})}>

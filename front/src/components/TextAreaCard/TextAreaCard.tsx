@@ -11,7 +11,7 @@ type TextAreaCardProps = {
     onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-function TextAreaCard({title, placeholder, value,onChange, maxLength = 1500, spellCheck = true}: TextAreaCardProps) {
+function TextAreaCard({title, placeholder, value, onChange, maxLength = 1500, spellCheck = true}: Readonly<TextAreaCardProps>) {
     return (
         <div className={"text-area-card"}>
             <SectionTitle

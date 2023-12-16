@@ -7,7 +7,7 @@ type SectionTitleProps = {
     fontWeight?: "regular" | "semibold" | "bold",
 }
 
-function SectionTitle({title, type = "primary", fontWeight = "bold"}: SectionTitleProps) {
+function SectionTitle({title, type = "primary", fontWeight = "bold"}: Readonly<SectionTitleProps>) {
     return (
         <h2
             className={classNames("section-title",

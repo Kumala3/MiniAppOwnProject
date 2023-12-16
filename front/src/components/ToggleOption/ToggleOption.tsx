@@ -7,7 +7,7 @@ type ToggleOptionProps = {
     setIsChecked: (isChecked: boolean) => void
 }
 
-function ToggleOption({text, isChecked, setIsChecked}: ToggleOptionProps) {
+function ToggleOption({text, isChecked, setIsChecked}: Readonly<ToggleOptionProps>) {
     return (
         <div className="toggle-option">
             <div className="toggle-option__text">

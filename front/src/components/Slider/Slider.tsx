@@ -11,7 +11,7 @@ type SliderProps = {
     setCurrentValue: (limit: number) => void,
 }
 
-function Slider({min, max, textUnit, step, currentValue, setCurrentValue}: SliderProps) {
+function Slider({min, max, textUnit, step, currentValue, setCurrentValue}: Readonly<SliderProps>) {
 
     const handleSave = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrentValue(Number(event.target.value))

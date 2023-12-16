@@ -6,7 +6,7 @@ type SettingSectionProps = {
     data: SettingCardProps[];
 }
 
-function SettingSection({title, data}: SettingSectionProps) {
+function SettingSection({title, data}: Readonly<SettingSectionProps>) {
     return (
         <section className="section">
             <SectionTitle
