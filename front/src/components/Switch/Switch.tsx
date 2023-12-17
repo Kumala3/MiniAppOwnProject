@@ -7,7 +7,7 @@ type SwitchProps = {
     setIsChecked: (is_checked: boolean) => void,
 }
 
-function Switch({is_Checked, setIsChecked}: SwitchProps) {
+function Switch({is_Checked, setIsChecked}: Readonly<SwitchProps>) {
     const [checked, setChecked] = useState(is_Checked)
 
     const toggleSwitch = () => {
@@ -16,12 +16,10 @@ function Switch({is_Checked, setIsChecked}: SwitchProps) {
     }
 
     return (
-        <>
-            <span
-                className={classNames("switch", {"switch__checked": is_Checked})}
-                onClick={toggleSwitch}>
-            </span>
-        </>
+        <button
+            className={classNames("switch", {"switch__checked": is_Checked})}
+            onClick={toggleSwitch}>
+        </button>
     )
 }
 
